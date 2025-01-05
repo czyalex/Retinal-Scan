@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction of Glaucoma Based on Your Retinal Scan Image</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction of Glaucoma Based on Your Retinal Scan Image</h1>
+        <form id="upload-form" action="/predict" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Image:</label>
+            <input type="file" id="file" name="file" required><br><br>
+
+            <!-- Dropdown for selecting prediction type -->
+            <label for="prediction_type">Select Prediction Type:</label>
+            <select name="prediction_type" id="prediction_type">
+                <option value="segmented">Segmented Image</option>
+                <option value="raw">Raw Image</option>
+            </select><br><br>
+
+            <input type="submit" value="Upload and Predict">
+        </form>
+        <div id="result">Result: Waiting for image upload...</div>
+    </div>
+
+    <!-- Use flexbox to align images and results in a row -->
+    <div id="output-section" class="hidden">
+        <div class="flex-container">
+            <!-- Left side: Images -->
+            <div class="images-column">
+                <div>
+                    <p>Original Image:</p>
+                    <img id="original-image" src="" alt="Original Image">
+                </div>
+                <div id="seg-disc-cup-section">
+                    <p>Segmented Disc and Cup:</p>
+                    <img id="seg-disc-cup" src="" alt="Segmented Disc and Cup">
+                </div>
+                <div id="seg-blood-vessels-section">
+                    <p>Segmented Blood Vessels:</p>
+                    <img id="seg-blood-vessels" src="" alt="Segmented Blood Vessels">
+                </div>
+            </div>
+
+            <!-- Right side: Results -->
+            <div class="results-column">
+                <p>ResNet 18 Prediction: <span id="model-a-result">N/A</span></p>
+                <p>ResNet 50 Prediction: <span id="model-b-result">N/A</span></p>
+                <p>Xception Prediction: <span id="model-c-result">N/A</span></p>
+                <p>VGG16 Prediction: <span id="model-d-result">N/A</span></p>
+                <p><strong>Final Prediction:</strong> <span id="final-result">N/A</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#upload-form').onsubmit = function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const predictionType = document.getElementById('prediction_type').value;
+
+            document.getElementById('result').innerText = 'Result: Processing...';
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update Result Status
+                document.getElementById('result').innerText = 'Result: Prediction Completed';
+
+                // Display Images and Results
+                document.getElementById('original-image').src = 'data:image/png;base64,' + data.originalImage;
+
+                // Handle visibility of segmented images based on prediction type
+                if (predictionType === 'raw') {
+                    document.getElementById('seg-disc-cup-section').style.display = 'block';
+                    document.getElementById('seg-blood-vessels-section').style.display = 'block';
+                    document.getElementById('seg-disc-cup').src = 'data:image/png;base64,' + data.segmentedDiscCup;
+                    document.getElementById('seg-blood-vessels').src = 'data:image/png;base64,' + data.segmentedBloodVessels;
+                } else {
+                    document.getElementById('seg-disc-cup-section').style.display = 'none';
+                    document.getElementById('seg-blood-vessels-section').style.display = 'none';
+                }
+
+                // Update results
+                document.getElementById('model-a-result').innerText = data.modelA;
+                document.getElementById('model-b-result').innerText = data.modelB;
+                document.getElementById('model-c-result').innerText = data.modelC;
+                document.getElementById('model-d-result').innerText = data.modelD;
+                document.getElementById('final-result').innerText = data.finalPrediction;
+
+                // Make Output Section Visible
+                document.getElementById('output-section').classList.remove('hidden');
+            })
+            .catch(error => {
+                // Update Result Status with error message
+                document.getElementById('result').innerText = 'Unable to process the image. It might be an unsupported format or corrupted.';
+                console.error('Error:', error);
+            });
+        };
+    </script>
+</body>
+</html>
