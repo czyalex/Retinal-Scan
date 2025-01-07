@@ -14,7 +14,7 @@ Glaucoma is a progressive eye disease that has been a leading cause of irreversi
    pip install -r requirements.txt
    ```
 
-* **Unzip models:**  Decompress the files in "releases" into the "models\weights" folder.
+* **Unzip models:**  Decompress the files "model_weights_V3.zip" into the "models\weights" folder.
 
 ### 2.2 Interactive Interface
 
