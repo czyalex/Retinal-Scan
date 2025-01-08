@@ -61,7 +61,7 @@ Glaucoma is a progressive eye disease that has been a leading cause of irreversi
 ### 3.1 Flow Chart
 
 The detailed workflow of this software are described in the graph below:
-![workflow](https://czyalex/Retinal-Scan/blob/main/images/workflow.jpg)
+![workflow](https://github.com/czyalex/Retinal-Scan/blob/main/images/workflow.jpg)
 
 ### 3.2 Model Training and Validation
 
