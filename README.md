@@ -18,7 +18,7 @@ Glaucoma is a progressive eye disease that has been a leading cause of irreversi
 
 ### 2.2 Interactive Interface
 
-![image](https://github.com/BIA4-course/2024-25-Group-04/blob/main/images/user_interface.png)
+![image](https://github.com/czyalex/Retinal-Scan/blob/main/images/user_interface.png)
 
 * **Image Upload**: Users can upload retinal scan images via a simple table.
 * **Prediction Type Selection**: Users can choose the prediction type based on the input image. If the uploaded image is a raw, unprocessed retinal scan, select the 'Raw Image' type. If the uploaded image is a segmented retinal scan, select the 'Segmented Image' type.
@@ -27,7 +27,7 @@ Glaucoma is a progressive eye disease that has been a leading cause of irreversi
 ### 2.3 Results Interpretation
 
 #### 2.3.1 Raw Image Type
-![image](https://github.com/BIA4-course/2024-25-Group-04/blob/main/images/raw_image_type.png)
+![image](https://github.com/czyalex/Retinal-Scan/blob/main/images/raw_image_type.png)
 
 * **Image Preprocessing:** The system receives the uploaded raw retinal images and performs necessary preprocessing steps, such as resizing and contrast enhancement, to standardize the images.
 
@@ -38,7 +38,7 @@ Glaucoma is a progressive eye disease that has been a leading cause of irreversi
 * **Result Display:** Based on the predictions from various models, three models predict "Negative," while one model predicts "Positive." The final result is "Little Probability of Glaucoma."
 
 #### 2.3.2 Segmented Image Type
-![image](https://github.com/BIA4-course/2024-25-Group-04/blob/main/images/segmented_image_type.png)
+![image](https://github.com/czyalex/Retinal-Scan/blob/main/images/segmented_image_type.png)
 
 * **Image Preprocessing:** The system receives the uploaded pre-cropped retinal images and performs necessary preprocessing steps, such as resizing and contrast enhancement, to standardize the images.
 
@@ -61,7 +61,7 @@ Glaucoma is a progressive eye disease that has been a leading cause of irreversi
 ### 3.1 Flow Chart
 
 The detailed workflow of this software are described in the graph below:
-![workflow](https://github.com/BIA4-course/2024-25-Group-04/blob/main/images/workflow.jpg)
+![workflow](https://czyalex/Retinal-Scan/blob/main/images/workflow.jpg)
 
 ### 3.2 Model Training and Validation
 
