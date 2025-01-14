@@ -1,4 +1,5 @@
-# Software Development Documentation - Glaucoma Prediction Software Based on Retinal Scan Images
+# Software Development Documentation - Glaucoma Prediction Software Based on Retinal Scan Images 
+(Image in: https://www.kaggle.com/datasets/sshikamaru/glaucoma-detection)
 
 ## 1. Introduction
 Glaucoma is a progressive eye disease that has been a leading cause of irreversible vision loss in clinics for over a decade. Early diagnosis and treatment of glaucoma are crucial to prevent further visual impairment. By establishing an easy-to-use auxiliary diagnostic platform with high accuracy and efficiency, our software aims to help medical professionals predict the risk of developing glaucoma by analyzing patients' retinal scan images. The operating guide, software design flow, model training process, and future application prospects for software developers, testers, biomedical researchers, and end-users are elaborated in this document.
