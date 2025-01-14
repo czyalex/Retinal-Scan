@@ -1,0 +1,13 @@
+Che Yuxing: Train models for ResNet18, ResNet50, ResUNet, integrate the front-end and back-end code, and upload files to the GitHub.
+
+Cheng zhiyuan: Construct and train the Transunet, Xception model and write the result part of the report.
+
+Sun Yanyi: Created the system flowchart for the Glaucoma Prediction Software, visualizing the overall architecture and data processing pipeline.
+
+Zhou Chenyu: write the user testing process of the document, revise the introduction and application prospect part of the document.
+
+Gao Anni: Complete training of the VGG16 model and write the results section of the report.
+
+Jia Zhenyuan: Build GUI for user interaction. Write document framework and complete the final integration and revision of document.
+
+Xu Jiayang: Write the Introduction and Method part of report and integrate the report, Write the Model Training and Result Interpretation of document.
